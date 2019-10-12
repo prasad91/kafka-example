@@ -18,7 +18,7 @@ public class ProducerApp {
 		Producer<Long, CustomObject> producer = ProducerCreator.createProducer();
 		for (int index = 0; index < IKafkaConstants.MESSAGE_COUNT; index++) {
 			ProducerRecord<Long, CustomObject> record = new ProducerRecord<Long, CustomObject>(
-					IKafkaConstants.TOPIC_NAME, new CustomObject("prasad", index));
+					/*IKafkaConstants.TOPIC_NAME*/"topicName", new CustomObject("prasad", index));
 			try {
 				RecordMetadata metadata = producer.send(record).get();
 				System.out.println("Record sent with key " + index + " to partition " + metadata.partition()
